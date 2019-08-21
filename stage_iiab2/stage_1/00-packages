@@ -1,2 +1,3 @@
 uuid-runtime sudo chrony
 screen lynx
+openvpn nmap ncat
