@@ -1,2 +1,3 @@
 dnsmasq
-python-dateutil sqlite3 
+python-dateutil sqlite3
+libapache2-mod-wsgi
