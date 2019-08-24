@@ -34,5 +34,3 @@ python-passlib
 python-pip
 python-setuptools
 python-virtualenv
-
-iptables-persistent

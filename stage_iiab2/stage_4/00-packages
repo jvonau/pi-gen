@@ -1,3 +1,7 @@
 dnsmasq
 python-dateutil sqlite3
 libapache2-mod-wsgi
+bluetooth
+bluez
+bluez-tools
+
