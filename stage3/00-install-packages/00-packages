@@ -13,3 +13,5 @@ fonts-droid-fallback
 fonts-liberation2
 obconf
 arandr
+piclone
+avahi-discover
