@@ -1,5 +1,5 @@
 avahi-daemon
-avahi-discover
+#avahi-discover
 exfat-fuse
 exfat-utils
 inetutils-syslogd
