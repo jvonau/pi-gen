@@ -9,8 +9,6 @@ git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab.git pi-gen
 ./iiab-install
 git checkout master
-cd /opt/iiab/iiab-factory
-git checkout master
 cd /opt/iiab/iiab-admin-console
 ./install
 touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
