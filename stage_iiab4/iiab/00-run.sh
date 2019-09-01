@@ -1,6 +1,6 @@
 #!/bin/bash -e
 on_chroot << EOF
-cp /opt/iiab/iiab/vars/local_vars_min.yml /etc/iiab/local_vars.yml
+cp /opt/iiab/iiab/vars/local_vars_medium.yml /etc/iiab/local_vars.yml
 echo "installing: True" >> /etc/iiab/local_vars.yml
 cd /opt/iiab/iiab-factory
 git checkout jv-pi-gen
@@ -12,12 +12,13 @@ git pull https://github.com/jvonau/iiab.git pi-gen
 git checkout master
 git pull
 EOF
+
 on_chroot << EOF2
 if [ ! -f /opt/iiab/iiab-factory/flags/iiab-admin-console-complete ]; then
     cd /opt/iiab/iiab-admin-console
     ./install
     touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
-fi
+    fi
 EOF2
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
