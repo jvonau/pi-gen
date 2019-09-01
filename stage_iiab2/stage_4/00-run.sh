@@ -15,5 +15,4 @@ cd /opt/iiab/iiab-admin-console
 ./install
 touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
 rm /etc/iiab/local_vars.yml
-sed -i 's/^STAGE=.*/STAGE=2/' /etc/iiab/iiab.env
 EOF

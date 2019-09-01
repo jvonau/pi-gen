@@ -23,4 +23,4 @@ fi
 EOF2
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
-sed -i 's/^STAGE=.*/STAGE=2/' ${ROOTFS_DIR}/etc/iiab/iiab.env
+sed -i 's/^STAGE=.*/STAGE=5/' ${ROOTFS_DIR}/etc/iiab/iiab.env

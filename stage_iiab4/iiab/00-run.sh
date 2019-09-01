@@ -24,4 +24,3 @@ if [ ! -f /opt/iiab/iiab-factory/flags/iiab-admin-console-complete ]; then
 EOF2
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
-sed -i 's/^STAGE=.*/STAGE=2/' ${ROOTFS_DIR}/etc/iiab/iiab.env
