@@ -6,13 +6,13 @@ cd /opt/iiab/iiab
 ./runrole 2-common
 ./runrole 3-base-server
 ./runrole mysql
-./runrole homepage
-./runrole kiwix
-./runrole kalite
-./runrole osm-vector-maps
+#./runrole homepage
+#./runrole kiwix
+#./runrole kalite
+#./runrole osm-vector-maps
 git checkout master
-cd /opt/iiab/iiab-admin-console
-./install
-touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
+#cd /opt/iiab/iiab-admin-console
+#./install
+#touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
 rm /etc/iiab/local_vars.yml
 EOF
