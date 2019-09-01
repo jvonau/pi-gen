@@ -1,3 +1,4 @@
+#!/bin/bash -e
 on_chroot << EOF
 cp /opt/iiab/iiab/vars/local_vars_min.yml /etc/iiab/local_vars.yml
 echo "installing: True" >> /etc/iiab/local_vars.yml
@@ -9,9 +10,16 @@ git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab.git pi-gen
 ./iiab-install
 git checkout master
-cd /opt/iiab/iiab-admin-console
-./install
-touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
-rm /etc/iiab/local_vars.yml
-
+git pull
 EOF
+
+if ! [ -f "${ROOTFS_DIR}/opt/iiab/iiab-factory/flags/iiab-admin-console-complete" ]; then
+    on_chroot << EOF
+    cd /opt/iiab/iiab-admin-console
+    ./install
+    touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
+    EOF
+fi
+
+rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
+sed -i 's/^STAGE=.*/STAGE=2/' ${ROOTFS_DIR}/etc/iiab/iiab.env
