@@ -5,10 +5,15 @@ cd /opt/iiab/iiab
 ./runrole 1-prep
 ./runrole 2-common
 ./runrole 3-base-server
+./runrole mysql
+./runrole homepage
 ./runrole kiwix
 ./runrole kalite
+./runrole osm-vector-maps
+git checkout master
+cd /opt/iiab/iiab-admin-console
+./install
+touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
 rm /etc/iiab/local_vars.yml
-git checkout master
-cd /opt/iiab/iiab-factory
-git checkout master
+sed -i 's/^STAGE=.*/STAGE=2/' /etc/iiab/iiab.env
 EOF
