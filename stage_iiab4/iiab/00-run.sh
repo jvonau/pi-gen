@@ -6,7 +6,9 @@ cd /opt/iiab/iiab-factory
 git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab-factory.git pi-gen
 cd /opt/iiab/iiab
-git checkout jv-pi-gen
+git checkout master
+git branch -D jv-pi-gen || true
+git checkout -b jv-pi-gen
 git pull https://github.com/jvonau/iiab.git pi-gen
 ./iiab-install
 git checkout master
