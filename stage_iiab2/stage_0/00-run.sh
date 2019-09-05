@@ -14,7 +14,7 @@ cd /opt/iiab/
 git clone https://github.com/iiab/iiab --depth 10
 cd /opt/iiab/iiab
 git checkout -b jv-pi-gen
-git pull https://github.com/jvonau/iiab.git pi-gen
+git pull https://github.com/jvonau/iiab.git installed2
 
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab-admin-console --depth 1

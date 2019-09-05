@@ -9,10 +9,10 @@ cd /opt/iiab/iiab
 git checkout master
 git branch -D jv-pi-gen || true
 git checkout -b jv-pi-gen
-git pull https://github.com/jvonau/iiab.git pi-gen
+git pull https://github.com/jvonau/iiab.git installed2
 ./iiab-install
-git checkout master
-git pull
+#git checkout master
+#git pull
 EOF
 
 on_chroot << EOF2
