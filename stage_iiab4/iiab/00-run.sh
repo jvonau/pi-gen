@@ -23,6 +23,10 @@ if [ ! -f /opt/iiab/iiab-factory/flags/iiab-admin-console-complete ]; then
 EOF2
 
 on_chroot << EOF3
+    echo -e 'Now running kalite zone'
+    kalite manage generate_zone
+    touch /opt/iiab/iiab-factory/flags/kalite-zone-complete
+
     echo -e 'Now retreiving kalite en.zip'
     cd /opt/iiab/downloads
     wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
