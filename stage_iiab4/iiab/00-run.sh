@@ -37,3 +37,5 @@ on_chroot << EOF3
 EOF3
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
+echo "cleaning out downloads"
+rm -f ${ROOTFS_DIR}/opt/iiab/downloads/*
