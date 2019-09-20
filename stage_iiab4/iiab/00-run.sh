@@ -1,5 +1,6 @@
 #!/bin/bash -e
 on_chroot << EOF
+mkdir -p /etc/iiab
 cd /opt/iiab/iiab-factory
 git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab-factory.git pi-gen
@@ -32,9 +33,6 @@ on_chroot << EOF3
     wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
     echo -e 'Now installing kalite en.zip'
     kalite manage retrievecontentpack local en en.zip
-    # NEW WAY ABOVE - since 2018-07-03 - installs KA Lite's mandatory English P$
-    # kalite manage retrievecontentpack download en
-    # OLD WAY ABOVE - fails w/ sev ISPs per https://github.com/iiab/iiab/issues$
     touch /opt/iiab/iiab-factory/flags/kalite-en.zip-complete
 EOF3
 
