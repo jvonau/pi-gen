@@ -36,6 +36,7 @@ on_chroot << EOF3
     touch /opt/iiab/iiab-factory/flags/kalite-en.zip-complete
     cd /opt/iiab/iiab-factory
     git checkout master
+    sed -i 's|_installed|_installed: True|' /etc/iiab/config_vars2.yml
 EOF3
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
