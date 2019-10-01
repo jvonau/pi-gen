@@ -34,6 +34,8 @@ on_chroot << EOF3
     echo -e 'Now installing kalite en.zip'
     kalite manage retrievecontentpack local en en.zip
     touch /opt/iiab/iiab-factory/flags/kalite-en.zip-complete
+    cd /opt/iiab/iiab-factory
+    git checkout master
 EOF3
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
