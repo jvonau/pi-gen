@@ -11,13 +11,13 @@ git pull https://github.com/jvonau/iiab-factory.git pi-gen
 ln -sf /opt/iiab/iiab-factory/iiab /usr/sbin/iiab
 
 cd /opt/iiab/
-git clone https://github.com/iiab/iiab --depth 10
+git clone https://github.com/iiab/iiab --branch release-7.0 --depth 10
 cd /opt/iiab/iiab
 git checkout -b jv-pi-gen
 git pull https://github.com/jvonau/iiab.git installed2
 
 cd /opt/iiab/
-git clone https://github.com/iiab/iiab-admin-console --depth 1
+git clone https://github.com/iiab/iiab-admin-console --branch v0.3.7 --depth 1
 
 cd /opt/iiab/iiab/scripts
 ./ansible

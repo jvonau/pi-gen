@@ -1,5 +1,6 @@
 #!/bin/bash -e
 on_chroot << EOF
+mkdir -p /etc/iiab
 cd /opt/iiab/iiab-factory
 git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab-factory.git pi-gen
@@ -22,4 +23,4 @@ fi
 EOF2
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
-sed -i 's/^STAGE=.*/STAGE=5/' ${ROOTFS_DIR}/etc/iiab/iiab.env
+sed -i 's/^STAGE=.*/STAGE=3/' ${ROOTFS_DIR}/etc/iiab/iiab.env

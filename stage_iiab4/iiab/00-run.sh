@@ -39,3 +39,5 @@ EOF3
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
 echo "cleaning out downloads"
 rm -f ${ROOTFS_DIR}/opt/iiab/downloads/*
+echo "reset stage counter"
+sed -i 's/^STAGE=.*/STAGE=3/' ${ROOTFS_DIR}/etc/iiab/iiab.env
