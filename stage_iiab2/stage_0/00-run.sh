@@ -13,6 +13,7 @@ ln -sf /opt/iiab/iiab-factory/iiab /usr/sbin/iiab
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab --branch release-7.0 --depth 10
 cd /opt/iiab/iiab
+git checkout -b master
 git checkout -b jv-pi-gen
 git pull https://github.com/jvonau/iiab.git installed2
 
