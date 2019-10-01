@@ -11,8 +11,8 @@ git branch -D jv-pi-gen || true
 git checkout -b jv-pi-gen
 git pull https://github.com/jvonau/iiab.git installed2
 ./iiab-install
-#git checkout master
-#git pull
+git checkout release-7.0
+git pull
 EOF
 
 on_chroot << EOF2
