@@ -27,16 +27,23 @@ if [ ! -f /etc/iiab/install-flags/iiab-admin-console-complete ]; then
 EOF2
 
 on_chroot << EOF3
-    echo -e 'Now running kalite zone'
-    kalite manage generate_zone
-    touch /etc/iiab/install-flags/kalite-zone-complete
-
-    echo -e 'Now retreiving kalite en.zip'
-    cd /opt/iiab/downloads
-    wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
-    echo -e 'Now installing kalite en.zip'
-    kalite manage retrievecontentpack local en en.zip
-    touch /etc/iiab/install-flags/kalite-en.zip-complete
+    if [ ! -f /etc/iiab/install-flags/kalite-zone-complete ]; then
+        echo -e 'Now running kalite zone'
+        kalite manage generate_zone
+        touch /etc/iiab/install-flags/kalite-zone-complete
+    else
+        echo -e 'Already ran kalite zone'
+    fi
+    if [ ! -f /etc/iiab/install-flags/kalite-zip-complete ]; then
+        echo -e 'Now retreiving kalite en.zip'
+        cd /opt/iiab/downloads
+        wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
+        echo -e 'Now installing kalite en.zip'
+        kalite manage retrievecontentpack local en en.zip
+        touch /etc/iiab/install-flags/kalite-en.zip-complete
+    else
+        echo -e 'Already ran kalite zip'
+    fi
     cd /opt/iiab/iiab-factory
     git checkout master
     sed -i 's|_installed|_installed: True|' /etc/iiab/config_vars2.yml
