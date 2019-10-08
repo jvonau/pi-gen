@@ -55,7 +55,6 @@ apt-get update
 apt-get -y dist-upgrade
 EOF4
 
-
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
 echo "cleaning out downloads"
 rm -f ${ROOTFS_DIR}/opt/iiab/downloads/*
