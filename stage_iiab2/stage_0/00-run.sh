@@ -3,7 +3,7 @@ mkdir -p ${ROOTFS_DIR}/opt/iiab
 
 on_chroot << EOF
 # use the stock iiab
-curl http://d.iiab.io/7.1/iiab > /usr/sbin/iiab
+curl curl https://raw.githubusercontent.com/iiab/iiab-factory/master/iiab > /usr/sbin/iiab
 chmod 0744 /usr/sbin/iiab
 
 # need the local_vars file
