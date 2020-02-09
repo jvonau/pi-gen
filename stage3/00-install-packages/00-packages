@@ -14,4 +14,4 @@ fonts-liberation2
 obconf
 arandr
 piclone
-avahi-discover
+#avahi-discover
