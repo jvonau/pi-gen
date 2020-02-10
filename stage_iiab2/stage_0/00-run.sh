@@ -3,7 +3,7 @@ mkdir -p ${ROOTFS_DIR}/opt/iiab
 
 on_chroot << EOF
 # use the stock iiab
-curl curl https://raw.githubusercontent.com/iiab/iiab-factory/master/iiab > /usr/sbin/iiab
+curl https://raw.githubusercontent.com/iiab/iiab-factory/master/iiab > /usr/sbin/iiab
 chmod 0744 /usr/sbin/iiab
 
 # need the local_vars file
@@ -15,7 +15,7 @@ git pull https://github.com/jvonau/iiab-factory.git pi-gen
 #ln -sf /opt/iiab/iiab-factory/iiab /usr/sbin/iiab
 
 cd /opt/iiab/
-git clone https://github.com/iiab/iiab --branch master --depth 10
+git clone https://github.com/jvonau/iiab --branch master
 cd /opt/iiab/iiab
 #git checkout -b master
 #git config branch.master.remote origin
