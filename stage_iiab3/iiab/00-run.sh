@@ -4,7 +4,7 @@ mkdir -p /etc/iiab/install-flags
 cd /opt/iiab/iiab-factory
 git checkout jv-pi-gen
 git pull https://github.com/jvonau/iiab-factory.git pi-gen
-cp /opt/iiab/iiab-factor/pi-gen/local_vars_min.yml /etc/iiab/local_vars.yml
+cp /opt/iiab/iiab-factory/pi-gen/local_vars_min.yml /etc/iiab/local_vars.yml
 cd /opt/iiab/iiab
 git checkout master
 git pull
