@@ -15,13 +15,13 @@ git pull https://github.com/jvonau/iiab-factory.git pi-gen
 #ln -sf /opt/iiab/iiab-factory/iiab /usr/sbin/iiab
 
 cd /opt/iiab/
-git clone https://github.com/jvonau/iiab --branch master
+git clone https://github.com/iiab/iiab --branch master
 cd /opt/iiab/iiab
 #git checkout -b master
 #git config branch.master.remote origin
 #git config branch.master.merge refs/heads/master
-git checkout -b target
-git pull https://github.com/jvonau/iiab.git target
+git checkout -b imaging
+git pull https://github.com/jvonau/iiab.git imaging
 
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab-admin-console --branch master --depth 10

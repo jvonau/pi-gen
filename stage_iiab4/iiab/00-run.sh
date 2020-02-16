@@ -8,9 +8,9 @@ cp /opt/iiab/iiab-factory/pi-gen/local_vars_medium.yml /etc/iiab/local_vars.yml
 cd /opt/iiab/iiab
 git checkout master
 git pull
-git branch -D target || true
-git checkout -b target
-git pull https://github.com/jvonau/iiab.git target
+git branch -D imaging || true
+git checkout -b imaging
+git pull https://github.com/jvonau/iiab.git imaging
 ./iiab-install
 EOF
 
@@ -52,6 +52,6 @@ EOF4
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
 echo "cleaning out downloads"
-rm -f ${ROOTFS_DIR}/opt/iiab/downloads/*
+rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"
 #sed -i 's/^STAGE=.*/STAGE=2/' ${ROOTFS_DIR}/etc/iiab/iiab.env
