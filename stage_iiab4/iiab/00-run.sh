@@ -5,11 +5,13 @@ on_chroot << EOF
 cd /opt/iiab/iiab
 git checkout master
 git pull
-git branch -D imaging || true
+# goes away when pi-gen in master start
 git config user.name "pi-gen"
 git config user.email "pi-gen@iiab.org"
+git branch -D imaging || true # allows re-run if build is interrupted
 git checkout -b imaging
 git pull https://github.com/jvonau/iiab.git imaging
+# goes away when pi-gen in master end
 ./iiab-install
 EOF
 
@@ -45,6 +47,8 @@ on_chroot << EOF4
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y dist-upgrade
+killall gpg-agent || true
+killall dirmngr || true
 EOF4
 
 rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
