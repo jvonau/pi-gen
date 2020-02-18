@@ -6,13 +6,13 @@ on_chroot << EOF
 curl https://raw.githubusercontent.com/iiab/iiab-factory/master/iiab > /usr/sbin/iiab
 chmod 0744 /usr/sbin/iiab
 
-# need the local_vars file
+cd /opt/iiab/
+git clone https://github.com/raspberrypi/rpi-eeprom
+sed -i 's/python/pthon3/' rpi-eeprom/rpi-eeprom-config
+rpi-eeprom/test/install
+
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab-factory # --depth 1
-cd /opt/iiab/iiab-factory
-git checkout -b jv-pi-gen
-git pull https://github.com/jvonau/iiab-factory.git pi-gen
-#ln -sf /opt/iiab/iiab-factory/iiab /usr/sbin/iiab
 
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab --branch master
