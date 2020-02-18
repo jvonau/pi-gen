@@ -111,6 +111,7 @@ nodered_enabled: False
 nextcloud_install: True
 nextcloud_enabled: False
 nextcloud_allow_public_ips: False
+nextcloud_dl_url: http://d.iiab.io/packages/latest.tar.bz2
 
 pbx_install: False
 pbx_enabled: False
