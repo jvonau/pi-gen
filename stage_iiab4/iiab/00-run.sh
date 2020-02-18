@@ -1,14 +1,13 @@
 #!/bin/bash -e
+mkdir -p ${ROOTFS_DIR}/etc/iiab/install-flags
+cp build_vars.yml ${ROOTFS_DIR}/etc/iiab/local_vars.yml
 on_chroot << EOF
-mkdir -p /etc/iiab/install-flags
-cd /opt/iiab/iiab-factory
-git checkout jv-pi-gen
-git pull https://github.com/jvonau/iiab-factory.git pi-gen
-cp /opt/iiab/iiab-factory/pi-gen/local_vars_medium.yml /etc/iiab/local_vars.yml
 cd /opt/iiab/iiab
 git checkout master
 git pull
 git branch -D imaging || true
+git config user.name "pi-gen"
+git config user.email "pi-gen@iiab.org"
 git checkout -b imaging
 git pull https://github.com/jvonau/iiab.git imaging
 ./iiab-install
@@ -30,7 +29,7 @@ on_chroot << EOF3
     else
         echo -e 'Already ran kalite zone'
     fi
-    if [ ! -f /etc/iiab/install-flags/kalite-zip-complete ]; then
+    if [ ! -f /etc/iiab/install-flags/kalite-en-zip-complete ]; then
         echo -e 'Now retreiving kalite en.zip'
         cd /opt/iiab/downloads
         wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
@@ -40,8 +39,6 @@ on_chroot << EOF3
     else
         echo -e 'Already ran kalite zip'
     fi
-    cd /opt/iiab/iiab-factory
-    git checkout master
 EOF3
 
 on_chroot << EOF4

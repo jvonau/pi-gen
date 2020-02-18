@@ -1,0 +1,175 @@
+imaging: True
+bluetooth_install: True
+bluetooth_enabled: False
+bluetooth_term_enabled: False
+
+download_timeout: 200
+default_language: en
+language_priority: en es fr
+
+iiab_admin_user_install: True
+iiab_admin_user: iiab-admin
+iiab_admin_pwd_hash: $6$xsce51$D.IrrEeLBYIuJkGDmi27pZUGOwPFp98qpl3hxMwWV4hXigFGmdSvy3s/j7tn6OnyTTLmlV7SsN0lCUAFzxSop.
+
+iiab_hostname: box
+iiab_domain: lan
+
+iiab_home_url: /home
+
+host_country_code: US
+host_ssid: "Internet in a Box"
+host_wifi_mode: g
+host_channel: 6
+hostapd_secure: False
+hostapd_password: changeme
+
+wan_ip: dhcp       # wan_ip: 192.168.1.99
+wan_netmask:       # wan_netmask: 255.255.255.0
+wan_gateway:       # wan_gateway: 192.168.1.254
+wan_nameserver:    # wan_nameserver: 192.168.1.254
+wan_try_dhcp_before_static_ip: True   # Facilitate field updates w/ cablemodems
+
+#ports_externally_visible: 0    # none
+#ports_externally_visible: 1    # ssh only
+#ports_externally_visible: 2    # ssh + http-or-https (for Admin Console's box.lan/admin too)
+ports_externally_visible: 3     # ssh + http-or-https + common IIAB services
+#ports_externally_visible: 4    # ssh + http-or-https + common IIAB services + Samba
+#ports_externally_visible: 5    # all but databases
+
+iiab_gateway_enabled: False
+
+dhcpd_install: False
+dhcpd_enabled: False
+
+named_install: False
+named_enabled: False
+
+dnsmasq_install: True
+dnsmasq_enabled: True
+
+dns_jail_enabled: False
+
+captive_portal_install: False
+captive_portal_enabled: False
+js_menu_install: True
+
+openvpn_install: True
+openvpn_enabled: False
+openvpn_handle: 
+
+pi_swap_file_size: 1024
+
+apache_high_php_limits: False
+apache_allow_sudo: True
+
+squid_install: False
+squid_enabled: False
+
+dansguardian_install: False
+dansguardian_enabled: False
+
+postgresql_install: False
+postgresql_enabled: False
+
+cups_install: False
+cups_enabled: False
+
+samba_install: False
+samba_enabled: False
+
+iiab_usb_lib_show_all: True
+
+azuracast_install: False
+azuracast_enabled: False
+
+dokuwiki_install: False
+dokuwiki_enabled: False
+
+mediawiki_install: True
+mediawiki_enabled: False
+
+ejabberd_install: False
+ejabberd_enabled: False
+
+elgg_install: True
+elgg_enabled: False
+
+gitea_install: True
+gitea_enabled: False
+
+lokole_install: True
+lokole_enabled: False
+
+mosquitto_install: False
+mosquitto_enabled: False
+
+nodered_install: True
+nodered_enabled: False
+
+nextcloud_install: True
+nextcloud_enabled: False
+nextcloud_allow_public_ips: False
+
+pbx_install: False
+pbx_enabled: False
+asterisk_chan_dongle: False
+
+wordpress_install: True
+wordpress_enabled: False
+
+kalite_install: True
+kalite_enabled: True
+kalite_cron_enabled: True
+
+kolibri_install: True
+kolibri_enabled: False
+
+kiwix_install: True
+kiwix_enabled: True
+
+moodle_install: False
+moodle_enabled: False
+
+osm_vector_maps_install: True
+osm_vector_maps_enabled: True
+
+sugarizer_install: True
+sugarizer_enabled: True
+
+transmission_install: True
+transmission_enabled: True
+transmission_kalite_languages:
+
+awstats_install: True
+awstats_enabled: True
+
+monit_install: False
+monit_enabled: False
+
+munin_install: False
+munin_enabled: False
+
+phpmyadmin_install: False
+phpmyadmin_enabled: False
+
+vnstat_install: False
+vnstat_enabled: False
+
+calibre_install: False
+calibre_enabled: False
+calibre_port: 8080
+calibre_web_path: calibre  #NEEDS WORK: https://github.com/iiab/iiab/issues/529
+
+calibreweb_install: True
+calibreweb_enabled: True
+calibreweb_port: 8083
+calibreweb_url1: /books     # For SHORT URL http://box/books  (English)
+calibreweb_url2: /libros    # For SHORT URL http://box/libros (Spanish)
+calibreweb_url3: /livres    # For SHORT URL http://box/livres (French)
+calibreweb_home: "{{ content_base }}/calibre-web"    # /library/calibre-web
+
+internetarchive_install: False
+internetarchive_enabled: False
+
+minetest_install: False
+minetest_enabled: False
