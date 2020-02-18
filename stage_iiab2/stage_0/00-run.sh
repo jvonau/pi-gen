@@ -8,20 +8,14 @@ chmod 0744 /usr/sbin/iiab
 
 cd /opt/iiab/
 git clone https://github.com/raspberrypi/rpi-eeprom
-sed -i 's/python/pthon3/' rpi-eeprom/rpi-eeprom-config
+sed -i 's/python/python3/' rpi-eeprom/rpi-eeprom-config
 rpi-eeprom/test/install
 
 cd /opt/iiab/
-git clone https://github.com/iiab/iiab-factory # --depth 1
+git clone https://github.com/iiab/iiab-factory --depth 1
 
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab --branch master
-cd /opt/iiab/iiab
-#git checkout -b master
-#git config branch.master.remote origin
-#git config branch.master.merge refs/heads/master
-git checkout -b imaging
-git pull https://github.com/jvonau/iiab.git imaging
 
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab-admin-console --branch master --depth 10
