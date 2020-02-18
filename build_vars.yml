@@ -49,8 +49,8 @@ dnsmasq_enabled: True
 
 dns_jail_enabled: False
 
-captive_portal_install: False
-captive_portal_enabled: False
+captive_portal_install: True
+captive_portal_enabled: True
 js_menu_install: True
 
 openvpn_install: True
@@ -77,6 +77,8 @@ cups_enabled: False
 samba_install: False
 samba_enabled: False
 
+usb_lib_install: True
+usb_lib_enabled: True
 iiab_usb_lib_show_all: True
 
 azuracast_install: False
