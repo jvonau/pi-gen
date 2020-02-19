@@ -1,6 +1,6 @@
 #!/bin/bash -e
 mkdir -p ${ROOTFS_DIR}/etc/iiab/install-flags
-cp build_vars.yml ${ROOTFS_DIR}/etc/iiab/local_vars.yml
+cp ../../build_vars.yml "${ROOTFS_DIR}/etc/iiab/local_vars.yml"
 on_chroot << EOF
 cd /opt/iiab/iiab
 git checkout master
