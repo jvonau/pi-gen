@@ -1,11 +1,14 @@
+nginx
 php
-php-curl
-
-php-sqlite3
-
-mariadb-server
-mariadb-client
 php-mysql
+php-curl
+php-sqlite3
+nginx-extras
+uwsgi
+uwsgi-plugin-python3
+php-fpm
+libnginx-mod-http-subs-filter
+
 php-pear
 php-gd
 php-imap
@@ -13,3 +16,5 @@ php-ldap
 php-odbc
 php-xmlrpc
 php-xml
+mariadb-server
+mariadb-client
