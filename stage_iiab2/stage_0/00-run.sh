@@ -20,6 +20,6 @@ git clone https://github.com/iiab/iiab --branch master
 cd /opt/iiab/
 git clone https://github.com/iiab/iiab-admin-console --branch master --depth 10
 
-cd /opt/iiab/iiab/scripts
-./ansible
+#cd /opt/iiab/iiab/scripts
+#./ansible
 EOF

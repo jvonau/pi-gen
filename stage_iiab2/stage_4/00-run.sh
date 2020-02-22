@@ -1,13 +1,8 @@
 on_chroot << EOF
 export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get -y dist-upgrade
-#mkdir -p /etc/iiab/install-flags
-#cp /opt/iiab/iiab-factory/pi-gen/local_vars_base.yml /etc/iiab/local_vars.yml
-#cd /opt/iiab/iiab
-#./iiab-install
-#cd /opt/iiab/iiab-admin-console
-#./install
-#touch /opt/iiab/iiab-factory/flags/iiab-admin-console-complete
-#rm /etc/iiab/local_vars.yml
+apt -y install python3-pip python3-setuptools python3-venv virtualenv
+python3 -m venv /usr/local/ansible
+source /usr/local/ansible/bin/activate
+sudo pip3 install ansible pymysql psycopg2 passlib
+deactivate
 EOF
