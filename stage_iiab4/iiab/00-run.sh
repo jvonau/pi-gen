@@ -10,7 +10,7 @@ git config user.name "pi-gen"
 git config user.email "pi-gen@iiab.org"
 git branch -D imaging || true # allows re-run if build is interrupted
 git checkout -b imaging
-git pull https://github.com/jvonau/iiab.git imaging
+git pull https://github.com/jvonau/iiab.git jv-test
 # goes away when pi-gen in master end
 ./iiab-install
 EOF
@@ -51,7 +51,7 @@ killall gpg-agent || true
 killall dirmngr || true
 EOF4
 
-rm ${ROOTFS_DIR}/etc/iiab/local_vars.yml
+mv ${ROOTFS_DIR}/etc/iiab/local_vars.yml ${ROOTFS_DIR}/boot/
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"
