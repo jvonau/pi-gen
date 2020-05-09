@@ -10,7 +10,7 @@ git config user.name "pi-gen"
 git config user.email "pi-gen@iiab.org"
 git branch -D imaging || true # allows re-run if build is interrupted
 git checkout -b imaging
-git pull https://github.com/jvonau/iiab.git jv-test
+git pull https://github.com/jvonau/iiab.git IIAB-test
 # goes away when pi-gen in master end
 ./iiab-install
 EOF
@@ -44,6 +44,10 @@ on_chroot << EOF3
 EOF3
 
 on_chroot << EOF4
+systemctl enable iiab-mv-localvars
+# Will add requrires= for above to below
+systemctl enable iiab-setup-mysql
+# enabled in PR 2381 Can't hurt to run again
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y dist-upgrade
