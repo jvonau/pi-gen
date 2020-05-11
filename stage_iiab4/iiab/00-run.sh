@@ -43,10 +43,16 @@ on_chroot << EOF3
     fi
 EOF3
 
+echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" > /boot/wpa_supplicant.conf
+echo "update_config=1" >> /boot/wpa_supplicant.conf
+echo "country=US" >> /boot/wpa_supplicant.conf
+echo "" >> /boot/wpa_supplicant.conf
+
 on_chroot << EOF4
 systemctl enable iiab-mv-localvars
 # Will add requrires= for above to below
 systemctl enable iiab-setup-mysql
+systemctl enable iiab-provision
 # enabled in PR 2381 Can't hurt to run again
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
@@ -54,8 +60,9 @@ apt-get -y dist-upgrade
 killall gpg-agent || true
 killall dirmngr || true
 EOF4
-
-mv ${ROOTFS_DIR}/etc/iiab/local_vars.yml ${ROOTFS_DIR}/boot/
+echo "saving build file - staging medium vars"
+mv ${ROOTFS_DIR}/etc/iiab/local_vars.yml ${ROOTFS_DIR}/etc/iiab/build_vars.yml
+cp ${ROOTFS_DIR}/opt/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"
