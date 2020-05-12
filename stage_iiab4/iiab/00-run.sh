@@ -63,7 +63,7 @@ killall gpg-agent || true
 killall dirmngr || true
 EOF4
 echo "saving build file - staging medium vars"
-cp ${ROOTFS_DIR}/opt/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
+cp ${ROOTFS_DIR}/opt/iiab/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"
