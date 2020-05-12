@@ -49,6 +49,8 @@ echo "country=US" >> /boot/wpa_supplicant.conf
 echo "" >> /boot/wpa_supplicant.conf
 
 on_chroot << EOF4
+mv /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
+rfkill unblock wlan
 systemctl enable iiab-mv-localvars
 # Will add requrires= for above to below
 systemctl enable iiab-setup-mysql
@@ -61,7 +63,6 @@ killall gpg-agent || true
 killall dirmngr || true
 EOF4
 echo "saving build file - staging medium vars"
-mv ${ROOTFS_DIR}/etc/iiab/local_vars.yml ${ROOTFS_DIR}/etc/iiab/build_vars.yml
 cp ${ROOTFS_DIR}/opt/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
