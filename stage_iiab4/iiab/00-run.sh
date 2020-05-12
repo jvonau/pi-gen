@@ -31,7 +31,7 @@ on_chroot << EOF3
     else
         echo -e 'Already ran kalite zone'
     fi
-    if [ ! -f /etc/iiab/install-flags/kalite-en-zip-complete ]; then
+    if [ ! -f /etc/iiab/install-flags/kalite-en.zip-complete ]; then
         echo -e 'Now retreiving kalite en.zip'
         cd /opt/iiab/downloads
         wget http://pantry.learningequality.org/downloads/ka-lite/0.17/content/contentpacks/en.zip
