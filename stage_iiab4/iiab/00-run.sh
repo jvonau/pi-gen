@@ -43,14 +43,13 @@ on_chroot << EOF3
     fi
 EOF3
 
+on_chroot << EOF4
 echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" > /boot/wpa_supplicant.conf
 echo "update_config=1" >> /boot/wpa_supplicant.conf
 echo "country=US" >> /boot/wpa_supplicant.conf
 echo "" >> /boot/wpa_supplicant.conf
 
-on_chroot << EOF4
 mv /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
-rfkill unblock wlan
 systemctl enable iiab-mv-localvars
 # Will add requrires= for above to below
 systemctl enable iiab-setup-mysql
