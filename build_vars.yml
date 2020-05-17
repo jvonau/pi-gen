@@ -124,7 +124,7 @@ kalite_install: True
 kalite_enabled: True
 kalite_cron_enabled: True
 
-kolibri_install: True
+kolibri_install: False
 kolibri_enabled: False
 
 kiwix_install: True
