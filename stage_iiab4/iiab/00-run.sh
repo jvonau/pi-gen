@@ -48,12 +48,12 @@ echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" > /boot/wpa_suppl
 echo "update_config=1" >> /boot/wpa_supplicant.conf
 echo "country=US" >> /boot/wpa_supplicant.conf
 echo "" >> /boot/wpa_supplicant.conf
-
+rm /etc/iiab/uuid
 mv /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
 systemctl enable iiab-mv-localvars
 # Will add requrires= for above to below
 systemctl enable iiab-setup-mysql
-#systemctl enable iiab-provision
+systemctl enable iiab-provision
 # enabled in PR 2381 Can't hurt to run again
 export DEBIAN_FRONTEND=noninteractive
 apt-get update

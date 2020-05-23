@@ -1,5 +1,5 @@
 nginx
-php
+php-common
 php-mysql
 php-curl
 php-sqlite3
