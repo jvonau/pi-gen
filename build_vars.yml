@@ -1,6 +1,6 @@
 imaging: True
 bluetooth_install: True
-bluetooth_enabled: False
+bluetooth_enabled: True
 bluetooth_term_enabled: False
 
 download_timeout: 200
@@ -44,8 +44,8 @@ dhcpd_enabled: False
 named_install: False
 named_enabled: False
 
-dnsmasq_install: True
-dnsmasq_enabled: True
+#dnsmasq_install: True
+#dnsmasq_enabled: True
 
 dns_jail_enabled: False
 
@@ -124,7 +124,7 @@ kalite_install: True
 kalite_enabled: True
 kalite_cron_enabled: True
 
-kolibri_install: False
+kolibri_install: True
 kolibri_enabled: False
 
 kiwix_install: True
