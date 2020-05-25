@@ -59,7 +59,8 @@ systemctl enable iiab-provision
 echo "saving build file"
 cp /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
 sed -i '/^imaging.*/d' /etc/iiab/local_vars.yml
-echo "build iiab git hash `git -C /opt/iiab/iiab/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash master `git -C /opt/iiab/iiab/ log master --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash imaging `git -C /opt/iiab/iiab/ log imaging --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
 echo "build iiab-admin-console git hash `git -C /opt/iiab/iiab-admin-console/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
 echo "build iiab-factory git hash `git -C /opt/iiab/iiab-factory/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
 export DEBIAN_FRONTEND=noninteractive
