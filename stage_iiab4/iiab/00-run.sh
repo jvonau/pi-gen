@@ -74,6 +74,7 @@ echo "staging medium vars in boot partition"
 # keeps in sync with build_vars.yml
 cp ${ROOTFS_DIR}/opt/iiab/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^bluetooth_enabled.*/bluetooth_enabled: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^bluetooth_install.*/bluetooth_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^kolibri_install.*/kolibri_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^elgg_install.*/elgg_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^gitea_install.*/gitea_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
