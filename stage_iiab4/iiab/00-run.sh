@@ -64,6 +64,12 @@ EOF4
 echo "saving build file - staging medium vars"
 cp ${ROOTFS_DIR}/opt/iiab/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^kolibri_install.*/kolibri_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^elgg_install.*/elgg_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^gitea_install.*/gitea_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^lokole_install.*/lokole_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^mediawiki_install.*/mediawiki_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^nodered_install.*/nodered_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^minetest_install.*/minetest_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"

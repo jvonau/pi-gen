@@ -174,5 +174,5 @@ calibreweb_home: "{{ content_base }}/calibre-web"    # /library/calibre-web
 internetarchive_install: False
 internetarchive_enabled: False
 
-minetest_install: False
+minetest_install: True
 minetest_enabled: False
