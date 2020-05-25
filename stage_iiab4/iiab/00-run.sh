@@ -87,4 +87,4 @@ rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 #echo "reset stage counter"
 #sed -i 's/^STAGE=.*/STAGE=3/' ${ROOTFS_DIR}/etc/iiab/iiab.env
 echo "record pi-gen git hash"
-echo "build pi-gen git hash `git -C /opt/iiab/pi-gen/ log --pretty=format:'g%h' -n 1`" >>> ${ROOTFS_DIR}/etc/iiab/build_vars.yml
+echo "build pi-gen git hash `git -C /opt/iiab/pi-gen/ log --pretty=format:'g%h' -n 1`" >> ${ROOTFS_DIR}/etc/iiab/build_vars.yml
