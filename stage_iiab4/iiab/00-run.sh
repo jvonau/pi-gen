@@ -44,24 +44,32 @@ on_chroot << EOF3
 EOF3
 
 on_chroot << EOF4
+echo "Prep image"
 echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" > /boot/wpa_supplicant.conf
 echo "update_config=1" >> /boot/wpa_supplicant.conf
 echo "country=US" >> /boot/wpa_supplicant.conf
 echo "" >> /boot/wpa_supplicant.conf
 rm /etc/iiab/uuid
-mv /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
 systemctl enable iiab-mv-localvars
 # Will add requrires= for above to below
 systemctl enable iiab-setup-mysql
 systemctl enable iiab-provision
 # enabled in PR 2381 Can't hurt to run again
+
+echo "saving build file"
+cp /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
+sed -i '/^imaging.*/d' /etc/iiab/local_vars.yml
+echo "build iiab git hash `git -C /opt/iiab/iiab/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab-admin-console git hash `git -C /opt/iiab/iiab-admin-console/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab-factory git hash `git -C /opt/iiab/iiab-factory/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y dist-upgrade
 killall gpg-agent || true
 killall dirmngr || true
 EOF4
-echo "saving build file - staging medium vars"
+
+echo "staging medium vars in boot partition"
 cp ${ROOTFS_DIR}/opt/iiab/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^kolibri_install.*/kolibri_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^elgg_install.*/elgg_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
@@ -70,7 +78,12 @@ sed -i 's/^lokole_install.*/lokole_install: True/' ${ROOTFS_DIR}/boot/local_vars
 sed -i 's/^mediawiki_install.*/mediawiki_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^nodered_install.*/nodered_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^minetest_install.*/minetest_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^bluetooth_enabled.*/bluetooth_enabled: True/' ${ROOTFS_DIR}/boot/local_vars.yml
+
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
+
 #echo "reset stage counter"
-#sed -i 's/^STAGE=.*/STAGE=2/' ${ROOTFS_DIR}/etc/iiab/iiab.env
+#sed -i 's/^STAGE=.*/STAGE=3/' ${ROOTFS_DIR}/etc/iiab/iiab.env
+echo "record pi-gen git hash"
+echo "build pi-gen git hash `git -C /opt/iiab/pi-gen/ log --pretty=format:'g%h' -n 1`" >>> ${ROOTFS_DIR}/etc/iiab/build_vars.yml
