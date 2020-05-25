@@ -59,10 +59,10 @@ systemctl enable iiab-provision
 echo "saving build file"
 cp /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
 sed -i '/^imaging.*/d' /etc/iiab/local_vars.yml
-echo "build iiab git hash master `git -C /opt/iiab/iiab/ log master --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
-echo "build iiab git hash imaging `git -C /opt/iiab/iiab/ log imaging --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
-echo "build iiab-admin-console git hash `git -C /opt/iiab/iiab-admin-console/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
-echo "build iiab-factory git hash `git -C /opt/iiab/iiab-factory/ log --pretty=format:'g%h' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash imaging `git -C /opt/iiab/iiab/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash master `git -C /opt/iiab/iiab/ log master --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab-admin-console git hash `git -C /opt/iiab/iiab-admin-console/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab-factory git hash `git -C /opt/iiab/iiab-factory/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y dist-upgrade
@@ -71,7 +71,9 @@ killall dirmngr || true
 EOF4
 
 echo "staging medium vars in boot partition"
+# keeps in sync with build_vars.yml
 cp ${ROOTFS_DIR}/opt/iiab/iiab/vars/local_vars_medium.yml ${ROOTFS_DIR}/boot/local_vars.yml
+sed -i 's/^bluetooth_enabled.*/bluetooth_enabled: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^kolibri_install.*/kolibri_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^elgg_install.*/elgg_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^gitea_install.*/gitea_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
@@ -79,12 +81,12 @@ sed -i 's/^lokole_install.*/lokole_install: True/' ${ROOTFS_DIR}/boot/local_vars
 sed -i 's/^mediawiki_install.*/mediawiki_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^nodered_install.*/nodered_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 sed -i 's/^minetest_install.*/minetest_install: True/' ${ROOTFS_DIR}/boot/local_vars.yml
-sed -i 's/^bluetooth_enabled.*/bluetooth_enabled: True/' ${ROOTFS_DIR}/boot/local_vars.yml
 
 echo "cleaning out downloads"
 rm -rf ${ROOTFS_DIR}/opt/iiab/downloads/*
 
 #echo "reset stage counter"
 #sed -i 's/^STAGE=.*/STAGE=3/' ${ROOTFS_DIR}/etc/iiab/iiab.env
+# assumes pi-gen is in /opt/iiab/pi-gen
 echo "record pi-gen git hash"
-echo "build pi-gen git hash `git -C /opt/iiab/pi-gen/ log --pretty=format:'g%h' -n 1`" >> ${ROOTFS_DIR}/etc/iiab/build_vars.yml
+echo "build pi-gen git hash `git -C /opt/iiab/pi-gen/ log --pretty=format:'g%H' -n 1`" >> ${ROOTFS_DIR}/etc/iiab/build_vars.yml
