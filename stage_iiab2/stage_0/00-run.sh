@@ -3,7 +3,7 @@ mkdir -p ${ROOTFS_DIR}/opt/iiab
 
 on_chroot << EOF
 # use the stock iiab
-curl https://raw.githubusercontent.com/iiab/iiab-factory/master/iiab > /usr/sbin/iiab
+curl http://d.iiab.io/7.1/iiab > /usr/sbin/iiab
 chmod 0744 /usr/sbin/iiab
 
 cd /opt/iiab/
@@ -12,8 +12,8 @@ cd /opt/iiab/
 #rpi-eeprom/test/install
 
 git clone https://github.com/iiab/iiab-factory --depth 1
-git clone https://github.com/iiab/iiab --branch master
-git clone https://github.com/iiab/iiab-admin-console --branch master --depth 10
+git clone https://github.com/iiab/iiab --branch release-7.1
+git clone https://github.com/iiab/iiab-admin-console --branch 0.4.2
 
 #export DEBIAN_FRONTEND=noninteractive
 #apt -y install python3-pip python3-setuptools python3-venv virtualenv
@@ -24,3 +24,5 @@ git clone https://github.com/iiab/iiab-admin-console --branch master --depth 10
 cd /opt/iiab/iiab/scripts
 ./ansible
 EOF
+
+cp stage_iiab2/iiab-refresh.sh /${ROOTFS_DIR}/usr/sbin/iiab-refresh
