@@ -23,7 +23,7 @@ fi
 
 check_branch(){
     cd $BASEDIR/iiab
-    git branch | grep release-7.1 | wc -l
+    git branch | grep -q release-7.1
 }
 
 use_master(){
@@ -69,7 +69,7 @@ if check_branch == 1; then
         UPDATE=1
     else
         echo "remaning on release-7.1 branch updating"
-        cd $BASE/iiab
+        cd $BASEDIR/iiab
         git checkout release-7.1
         git pull origin release-7.1
         cd $BASEDIR
