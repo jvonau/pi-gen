@@ -75,6 +75,7 @@ if check_branch == 1; then
         cd $BASEDIR
         if [ -d iiab-admin-console ]; then
             cd iiab-admin-console
+            git checkout 0.4.2
             git pull origin 0.4.2
         fi
     fi
