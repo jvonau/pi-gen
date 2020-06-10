@@ -3,7 +3,7 @@ mkdir -p ${ROOTFS_DIR}/etc/iiab/install-flags
 cp ../../build_vars.yml "${ROOTFS_DIR}/etc/iiab/local_vars.yml"
 on_chroot << EOF
 cd /opt/iiab/iiab
-git checkout master
+git checkout release-7.1
 git pull
 # goes away when pi-gen in master start
 git config user.name "pi-gen"
@@ -59,8 +59,8 @@ systemctl enable iiab-provision
 echo "saving build file"
 cp /etc/iiab/local_vars.yml /etc/iiab/build_vars.yml
 sed -i '/^imaging.*/d' /etc/iiab/local_vars.yml
-echo "build iiab git hash imaging `git -C /opt/iiab/iiab/ log imaging --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
-echo "build iiab git hash master `git -C /opt/iiab/iiab/ log master --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash imaging `git -C /opt/iiab/iiab/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
+echo "build iiab git hash release-7.1 `git -C /opt/iiab/iiab/ log release-7.1 --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
 echo "build iiab-admin-console git hash `git -C /opt/iiab/iiab-admin-console/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
 echo "build iiab-factory git hash `git -C /opt/iiab/iiab-factory/ log --pretty=format:'g%H' -n 1`" >> /etc/iiab/build_vars.yml
 export DEBIAN_FRONTEND=noninteractive
