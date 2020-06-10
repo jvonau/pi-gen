@@ -25,4 +25,4 @@ cd /opt/iiab/iiab/scripts
 ./ansible
 EOF
 
-cp stage_iiab2/iiab-refresh.sh ${ROOTFS_DIR}/usr/sbin/iiab-refresh
+install -m 755 iiab-refresh.sh "${ROOTFS_DIR}/usr/sbin/iiab-refresh"
