@@ -7,7 +7,7 @@ download_timeout: 200
 default_language: en
 language_priority: en es fr
 
-iiab_admin_user_install: True
+iiab_admin_user_install: False
 iiab_admin_user: iiab-admin
 iiab_admin_pwd_hash: $6$xsce51$D.IrrEeLBYIuJkGDmi27pZUGOwPFp98qpl3hxMwWV4hXigFGmdSvy3s/j7tn6OnyTTLmlV7SsN0lCUAFzxSop.
 
@@ -50,10 +50,10 @@ named_enabled: False
 dns_jail_enabled: False
 
 captive_portal_install: True
-captive_portal_enabled: True
+captive_portal_enabled: False
 js_menu_install: True
 
-openvpn_install: True
+openvpn_install: False
 openvpn_enabled: False
 openvpn_handle: 
 
@@ -121,14 +121,14 @@ wordpress_install: True
 wordpress_enabled: False
 
 kalite_install: True
-kalite_enabled: True
+kalite_enabled: False
 kalite_cron_enabled: True
 
 kolibri_install: True
 kolibri_enabled: False
 
 kiwix_install: True
-kiwix_enabled: True
+kiwix_enabled: False
 
 moodle_install: False
 moodle_enabled: False
@@ -137,14 +137,14 @@ osm_vector_maps_install: True
 osm_vector_maps_enabled: True
 
 sugarizer_install: True
-sugarizer_enabled: True
+sugarizer_enabled: False
 
 transmission_install: True
-transmission_enabled: True
+transmission_enabled: False
 transmission_kalite_languages:
 
 awstats_install: True
-awstats_enabled: True
+awstats_enabled: False
 
 monit_install: False
 monit_enabled: False
@@ -164,7 +164,7 @@ calibre_port: 8080
 calibre_web_path: calibre  #NEEDS WORK: https://github.com/iiab/iiab/issues/529
 
 calibreweb_install: True
-calibreweb_enabled: True
+calibreweb_enabled: False
 calibreweb_port: 8083
 calibreweb_url1: /books     # For SHORT URL http://box/books  (English)
 calibreweb_url2: /libros    # For SHORT URL http://box/libros (Spanish)
