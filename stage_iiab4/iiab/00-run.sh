@@ -68,6 +68,7 @@ apt-get update
 apt-get -y dist-upgrade
 killall gpg-agent || true
 killall dirmngr || true
+touch /etc/iiab/install-flags/iiab-complete
 EOF4
 
 echo "staging medium vars in boot partition"
